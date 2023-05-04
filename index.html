@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,12 +10,34 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <title>Vue tute</title>
 </head>
-<body id="content" class="bg-gray-700 text-white m-2 p-2">
-    <h1 class="text-3xl">Hello vue</h1>
-    <p class="">Hello from me</p>
+
+<body class="bg-gray-700 text-white m-2 p-2">
+    <nav class="flex border-b font-bold gap-2 p-2">
+        <a v-for="link in links" class="cursor-pointer" href="">{{link}}</a> <!-- Mark how i use v-for to run a for look-->
+    </nav>
+    <div id="content">
+        <h1 class="text-3xl">{{pageTitle}}</h1>
+        <p class="">{{content}}</p>
+    </div>
 
     <script>
-        Vue.createApp().mount('#content')
+        Vue.createApp({
+            data() {
+                return {
+                    links: ['Home', 'About', 'Content']
+                }
+            }
+        }).mount('nav')
+
+        Vue.createApp({
+            data() { // this is state
+                return {
+                    pageTitle: 'Hello Vue',
+                    content: 'Hello to vue from me'
+                }
+            }
+        }).mount('#content')
     </script>
 </body>
+
 </html>
