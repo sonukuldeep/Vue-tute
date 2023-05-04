@@ -14,14 +14,15 @@
 <body class="bg-gray-700 text-white">
     <main>
         <nav class="flex border-b font-bold gap-4 p-4">
-            <a v-for="(link,index) in links" v-bind:key="`${index}`" class="cursor-pointer" v-bind:href="link.url"
-                :title="`This links to ${link.text.toLowerCase()} page`">{{link.text}}</a>
+            <a v-for="(page,index) in pages" v-bind:key="`${index}`" class="cursor-pointer" v-bind:class="{'text-green-400' : activePage == index}" v-bind:href="page.link.url"
+                :title="`This links to ${page.link.text.toLowerCase()} page`" v-on:click.prevent="()=>activePage = index">{{page.link.text}}</a>
             <!-- Mark how i use v-for to run a for loop-->
             <!-- Mark the keywork v-bind (alias :) to bind data to attribute  -->
+            <!-- v-on has an alias @. Ex @click, @submit etc -->
         </nav>
         <div class="m-2 p-2">
-            <h1 class="text-3xl">{{pageTitle}}</h1>
-            <p class="">{{content}}</p>
+            <h1 class="text-3xl">{{pages[activePage].content}}</h1>
+            <p class="">{{pages[activePage].content}}</p>
         </div>
     </main>
 
@@ -30,13 +31,24 @@
         Vue.createApp({
             data() { // this is state
                 return {
-                    pageTitle: 'Hello Vue',
-                    content: 'Hello to vue from me',
-                    links: [
-                        { text: 'Home', url: 'index.html' },
-                        { text: 'About', url: 'about.html' },
-                        { text: 'Content', url: 'content.html' }
-                    ]
+                    activePage: 0,
+                    pages: [
+                        {
+                            link: { text: 'Home', url: 'index.html' },
+                            pageTitle: 'Hello from home page',
+                            content: 'Hello to vue from home page',
+                        },
+                        {
+                            link: { text: 'About', url: 'about.html' },
+                            pageTitle: 'Hello from about page',
+                            content: 'Hello to vue from about page',
+                        },
+                        {
+                            link: { text: 'Content', url: 'content.html' },
+                            pageTitle: 'Hello from content page',
+                            content: 'Hello to vue from content page',
+                        },
+                    ],
                 }
             }
         }).mount('main')
