@@ -1,7 +1,7 @@
 
 # Vue App
 
-This project uses Vue framework and tailwindcss and is made as a result of coding journey towards vue engine. 
+This project uses Vue framework and tailwindcss and is made as a result of my coding adventure with vue framework. 
 
 ## Chapter - 1 Basics 
 * v-bind alias : example:- v-bind:class, v-bind:href
