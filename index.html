@@ -13,7 +13,10 @@
 
 <body class="bg-gray-700 text-white m-2 p-2">
     <nav class="flex border-b font-bold gap-2 p-2">
-        <a v-for="link in links" class="cursor-pointer" href="">{{link}}</a> <!-- Mark how i use v-for to run a for look-->
+        <a v-for="(link,index) in links" v-bind:key="`${index}`" class="cursor-pointer" v-bind:href="link.url"
+            :title="`This links to ${link.text.toLowerCase()} page`">{{link.text}}</a>
+        <!-- Mark how i use v-for to run a for loop-->
+        <!-- Mark the keywork v-bind (alias :) to bind data to attribute  -->
     </nav>
     <div id="content">
         <h1 class="text-3xl">{{pageTitle}}</h1>
@@ -24,7 +27,11 @@
         Vue.createApp({
             data() {
                 return {
-                    links: ['Home', 'About', 'Content']
+                    links: [
+                        { text: 'Home', url: 'index.html' },
+                        { text: 'About', url: 'about.html' },
+                        { text: 'Content', url: 'content.html' }
+                    ]
                 }
             }
         }).mount('nav')
