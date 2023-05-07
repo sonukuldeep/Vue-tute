@@ -83,6 +83,10 @@ This project uses Vue framework and tailwindcss and is made as a result of my co
 </script>
 ```
 
+## Chapter - 3
+Using the toolchain i.e vue on vite
+
+Ported chapter 2 to vue on vite 
 ## Badges
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/) 
