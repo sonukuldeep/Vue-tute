@@ -1,0 +1,26 @@
+[
+    {
+       "link": {
+          "text": "Home",
+          "url": "index.html"
+       },
+       "pageTitle": "Hello from home page",
+       "content": "Hello to vue from home page"
+    },
+    {
+       "link": {
+          "text": "About",
+          "url": "about.html"
+       },
+       "pageTitle": "Hello from about page",
+       "content": "Hello to vue from about page"
+    },
+    {
+       "link": {
+          "text": "Content",
+          "url": "content.html"
+       },
+       "pageTitle": "Hello from content page",
+       "content": "Hello to vue from content page"
+    }
+ ]

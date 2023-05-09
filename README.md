@@ -87,6 +87,34 @@ This project uses Vue framework and tailwindcss and is made as a result of my co
 Using the toolchain i.e vue on vite
 
 Ported chapter 2 to vue on vite 
+
+## Chapter - 4
+Using created and methods to access data before page renders
+```jsx
+export default {
+  components: {
+    Navbar, PageViewer
+  },
+  created() {
+    this.getPages()
+  },
+  data() {
+    return {
+      activePage: 0,
+      pages: [],
+    }
+  },
+  methods: {
+    async getPages() {
+      const res = await fetch('pages.json')
+      const data = await res.json()
+      this.pages = data
+    }
+  }
+}
+```
+With this change comes some bug too which will be fixed in next chapter 
+
 ## Badges
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/) 
