@@ -113,7 +113,22 @@ export default {
   }
 }
 ```
-With this change comes some bug too which will be fixed in next chapter 
+With this change comes some bug as well. 
+```js
+<template>
+  <navbar :pages="pages" :active-page="activePage" :trigger-navbar-link="index => activePage = index"></navbar>
+
+  <page-viewer v-bind:page-title="pages[activePage].content" // here pages[activePage] returns undefined since initially pages is empty so to fix this we use the this code with minor modification as shown below
+    v-bind:page-content="pages[activePage].content"></page-viewer>
+</template>
+
+<template>
+  <navbar :pages="pages" :active-page="activePage" :trigger-navbar-link="index => activePage = index"></navbar>
+
+  <page-viewer v-if="pages.length > 0" v-bind:page-title="pages[activePage].content"
+    v-bind:page-content="pages[activePage].content"></page-viewer>
+</template>
+```
 
 ## Badges
 

@@ -1,7 +1,7 @@
 <template>
   <navbar :pages="pages" :active-page="activePage" :trigger-navbar-link="index => activePage = index"></navbar>
 
-  <page-viewer v-bind:page-title="pages[activePage].content"
+  <page-viewer v-if="pages.length > 0" v-bind:page-title="pages[activePage].content"
     v-bind:page-content="pages[activePage].content"></page-viewer>
 </template>
 
